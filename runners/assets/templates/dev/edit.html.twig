@@ -1,0 +1,13 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Edit Dev{% endblock %}
+
+{% block body %}
+    <h1>Edit Dev</h1>
+
+    {{ include('dev/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_dev_index') }}">back to list</a>
+
+    {{ include('dev/_delete_form.html.twig') }}
+{% endblock %}

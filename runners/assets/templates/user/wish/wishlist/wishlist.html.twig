@@ -1,0 +1,63 @@
+{% extends 'user/layout.html.twig' %}
+
+{% block body %}
+            {{ include('user/wish/header.html.twig') }}
+    {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+         {% for message in app.flashes('no-code') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name List</th>
+      <th scope="col">Description</th>
+      <th scope="col">Category</th>
+      <th scope="col">Time</th>
+      <th scope="col">Time end</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for ListWishes in ListWishes %}
+        <tr>
+        <th scope="row">{{ListWishes.id}}</th>
+        <td>{{ListWishes.name}}</td>
+        <td>{{ListWishes.description}}</td>
+        <td>{% if ListWishes.idcategory == 1 %}
+          Urodziny
+        {% elseif ListWishes.idcategory == 2 %}
+          Święta
+        {% else %}
+          Inne
+        {% endif %}        
+        </td>
+        <td>{{ListWishes.time}}</td>
+        <td>{{ListWishes.timeend}}</td>
+        <td>
+        <a href="/wishlist/open/{{ListWishes.id}}"><span class="glyphicon glyphicon-info-sign"></span></a>&nbsp;
+        <a href="/wishlist/edit/{{ListWishes.id}}"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;
+        <a href="/wishlist/delete/{{ListWishes.id}}"><span class="glyphicon glyphicon-remove"></span></a>&nbsp;
+        <a href="/wishlist/share/{{ListWishes.code}}/view"><span class="glyphicon glyphicon-share-alt"></span></a></td>
+        </tr>
+{% endfor %}
+<tr>
+<th></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="wishlist/add"><span class="glyphicon glyphicon-plus"></span></a></td>
+</tr>
+  </tbody>
+</table>
+
+{% endblock %}

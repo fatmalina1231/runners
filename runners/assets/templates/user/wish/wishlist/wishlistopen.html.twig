@@ -1,0 +1,59 @@
+{% extends 'user/wish/base.html.twig' %}
+
+{% block body %}
+            {{ include('user/wish/header.html.twig') }}
+            {% for message in app.flashes('no-code') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-12">
+              <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    Nazwa listy: {{ NameList }}<br>
+                    Stworzona przez: {{ Username }}<br>
+                    Opis listy: {{ DescList }}
+                 </div>               
+                </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+                <table class="table table-striped">
+                <thead>
+              <tr>
+              <th>Nazwa:</th>
+              <th>Opis:</th>
+              <th>Link:</th>
+              <th>Zajetę przez:</th>
+              <th>Podłącz pod konto</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% if ListWishes == NULL %}
+            <tr>
+              <td colspan = "5"><center>Brak prezentów na liście</center></td>
+            </tr>
+            {% endif %}
+            {% for ListWish in ListWishes %}
+             <tr>
+              <td>{{ ListWish.name }}</td>
+              <td>{{ ListWish.description }}</td>
+              <td>{% if ListLink[loop.index-1] != NULL %}<a href="{{ ListLink[loop.index-1] }}" target="_blank">Link</a>{% else %} <b>Brak</b> {% endif %}</td>
+              <td>{{ ListUser[loop.index-1].username }}</td>
+              <td> -----</td>
+            </tr>
+            {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+  </div>
+{% endblock %}

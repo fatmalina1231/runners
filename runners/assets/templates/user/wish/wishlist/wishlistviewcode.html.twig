@@ -1,0 +1,25 @@
+{% extends 'user/wish/base.html.twig' %}
+
+{% block body %}
+            {{ include('user/wish/header.html.twig') }}
+            <script>
+            function copyToClipboard(element) {
+                var $temp = $("<input>");
+                $("body").append($temp);
+                $temp.val($(element).text()).select();
+                document.execCommand("copy");
+                $temp.remove();
+            }
+            </script>
+        <br>
+<center>Twój link zaproszenia to:<br><br>
+<div class="alert alert-info">
+<samp><p id="p1">{{ link }}</p></samp>
+</div>
+
+
+<button onclick="copyToClipboard('#p1')">Copy URL</button>
+
+</table>
+
+{% endblock %}

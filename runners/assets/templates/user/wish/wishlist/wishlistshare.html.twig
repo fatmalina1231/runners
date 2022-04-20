@@ -1,0 +1,22 @@
+{% extends 'user/wish/base.html.twig' %}
+{% block title %}{% endblock %}
+{% block body %}
+
+{% for message in app.flashes('no-code') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+{% endfor %}
+
+{% if error == 0 %}
+Zostałeś zaproszony do listy o nazwie: {{ListWishes.name}}<br>
+
+{% if app.user == NULL %}
+    Aby móc dołączyć do listy, musisz się zarejestrować!
+{% else %}
+    <a href="{{ app.request.requesturi }}/join">Dołącz</a>
+{% endif %}
+{% endif %}
+  </tbody>
+</table>
+{% endblock %}

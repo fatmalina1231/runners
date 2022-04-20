@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}Distance between 2 markers{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/distance.js') }}"></script>
+    <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key={{ API_KEY }}&callback=initMap"></script>
+{% endblock %}
+{% block body %}
+    <div id="map" data-icon-option="{{ iconOption }}"></div>
+    <form method="get">
+        <p>
+            <strong>Marker 1:</strong>
+        </p>
+        <p>Latitude
+            <input type="text" name="lat1" id="lat1" readonly="readonly">, Longitude
+            <input type="text" name="lng1" id="lng1" readonly="readonly"></p>
+
+        <p>
+            <strong>Marker 2:</strong>
+        </p>
+        <p>Latitude
+            <input type="text" name="lat2" id="lat2" readonly="readonly">, Longitude
+            <input type="text" name="lng2" id="lng2" readonly="readonly"></p>
+
+        <input type="submit">
+    </form>
+{% endblock %}

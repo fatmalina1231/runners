@@ -1,0 +1,90 @@
+{% extends 'user/wish/base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+
+{% block body %}
+            {{ include('user/wish/header.html.twig') }}
+<script>
+$(document).ready(function() {
+    var max_fields      = 10;
+    var wrapper         = $(".container1");
+    var add_button      = $(".add_form_field");
+ 
+    var x = 1;
+    $(add_button).click(function(e){
+        e.preventDefault();
+        if(x < max_fields){
+            x++;
+            $(wrapper).append('<div><div class="input-group form-group"><div class="input-group-prepend"><span class="input-group-text" style="width:250px;">Nazwa prezentu:</span></div><input type="text" name="name_wish[]" class="form-control"></div><div class="input-group form-group"><div class="input-group-prepend"><span class="input-group-text" style="width:250px;">Opis prezentu:</span></div><input type="textarea" name="desc_wish[]" class="form-control"></div><div class="input-group form-group"><div class="input-group-prepend"><span class="input-group-text" style="width:250px;">Link do prezentu(opcjonalnie):</span></div><input type="text" name="link_wish[]" class="form-control"></div><a href="#" class="delete">Delete</a></div>'); //add input box
+        }
+  else
+  {
+  alert('You Reached the limits')
+  }
+    });
+ 
+    $(wrapper).on("click",".delete", function(e){
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
+
+
+            <form method="post">
+			<div class="card-body">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:250px;">Nazwa:</span>
+						</div>
+						 {{ form_widget(form.name) }}
+					</div>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:250px;">Opis:</span>
+						</div>
+						 {{ form_widget(form.description) }}
+					</div>
+                      <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:250px;">Czas zakończenia:</span>
+						</div>
+						 {{ form_widget(form.time_end) }}
+					</div>
+                      <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:250px;">Kategoria:</span>
+						</div>
+						 {{ form_widget(form.category) }}
+					</div>
+                    Prezenty:<br>
+				 <div class="container1">
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:250px;">Nazwa prezentu:</span>
+						</div>
+                        <input type="text" name="name_wish[]" class="form-control">
+					</div>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:250px;">Opis prezentu:</span>
+						</div>
+                        <input type="textarea" name="desc_wish[]" class="form-control">
+					</div>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:250px;">Link do prezentu(opcjonalnie):</span>
+						</div>
+                        <input type="text" name="link_wish[]" class="form-control">
+					</div>
+				</div>
+					<div class="form-group">
+					{{ form_widget(form.Add) }} 				<button class="add_form_field btn-primary btn">Add New Field &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
+
+					</div>
+			</div>
+				</form>
+
+
+
+{% endblock %}

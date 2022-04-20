@@ -1,0 +1,47 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Dev index{% endblock %}
+
+{% block body %}
+    <h1>Dev index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fullname</th>
+                <th>Email</th>
+                <th>Devgroup_name</th>
+                <th>Gender</th>
+                <th>Account_id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+     
+
+        {% for dev in devs %}
+            <tr>
+                <td>{{ dev.id }}</td>
+                <td>{{ dev.fullname }}</td>
+                <td>{{ dev.email }}</td>
+                <td>{{ dev.devgroupName }}</td>
+                =
+                <td>{{ dev.gender }}</td>
+                <td>{{ dev.accountId }}</td>
+                <td>
+                    <a href="{{ path('app_dev_show', {'id': dev.id}) }}">show</a>
+                    <a href="{{ path('app_dev_edit', {'id': dev.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dev_new') }}">Create new</a>
+{% endblock %}

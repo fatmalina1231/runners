@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}Custom Marker{% endblock %}
+{% block body %}
+    <form method="post">
+        Icon:
+        <select name="icon">
+            <option value="">Default</option>
+            <option value="flag-map-marker.png">Flag</option>
+            <option value="map-marker.png">Pin</option>
+        </select>
+        <br><br>
+        Color:
+        <select name="color">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+        <br><br>
+        <input type="submit">
+    </form>
+{% endblock %}

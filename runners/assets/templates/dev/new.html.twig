@@ -1,0 +1,11 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}New Dev{% endblock %}
+
+{% block body %}
+    <h1>Create new Dev</h1>
+
+    {{ include('dev/_form.html.twig') }}
+
+    <a href="{{ path('app_dev_index') }}">back to list</a>
+{% endblock %}

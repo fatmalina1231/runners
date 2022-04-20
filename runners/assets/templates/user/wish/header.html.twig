@@ -1,0 +1,48 @@
+{% block body %}
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Wishlist</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/index">
+          <i class="fa fa-home"></i>
+          Home
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/wishlist">
+          <i class="fa fa-envelope-o">
+            <span class="badge badge-danger">1</span>
+          </i>
+          Your Wishlist
+        </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/wishlistother">
+          <i class="fa fa-envelope-o">
+            <span class="badge badge-danger">1</span>
+          </i>
+          Other Wishlist
+        </a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ">
+<div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     {{ app.user.username }}
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <a class="dropdown-item" href="/options">Ustawienia</a>
+    <a class="dropdown-item" href="/logout">Wyloguj</a>
+  </div>
+</div>
+    </ul>
+
+  </div>
+</nav>
+{% endblock %}

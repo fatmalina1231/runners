@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Symfony Map</title>
+    {% block stylesheets %}
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+            }
+            #map {
+                width: 100%;
+                height: 50%;
+                margin: 0;
+            }
+        </style>
+    {% endblock %}
+
+</head>
+<body>
+{% block body %}
+    <div id="map"></div>
+
+    <div>
+        <form method="get" action="/get">
+            <input id="address" name="address" type="text" placeholder="Address">
+            <input id="submit" name="submit" type="submit" value="Locate">
+        </form>
+    </div>
+
+    {% if lat is defined %}
+    <div style="">
+        <h4>Latitude: <span id="lat">{{ lat }}</span></h4>
+        <h4>Longitude: <span id="long">{{ long }}</span></h4>
+
+        <label for="markers">Choose Marker:</label>
+        <select name="markers" onchange="initMap()" id="markers">
+            <option selected value="1">Default</option>
+            <option value="2">Diamond</option>
+        </select>
+        <br><br>
+        <label for="colors">Choose Color:</label>
+        <select name="colors" onchange="initMap()" disabled id="colors">
+            <option selected value="Blue">Blue</option>
+            <option value="Purple">Purple</option>
+        </select>
+
+    </div>
+    {% endif %}
+
+
+
+
+
+{% block javascripts %}
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGDxBUUL2IfxGnkjWFi9KEja4_sbOAWyY&callback=initMap">
+    </script>
+    <script src="{{ asset('index.js') }}"></script>
+
+{% endblock %}
+{% endblock %}
+</body>
+
+</html>

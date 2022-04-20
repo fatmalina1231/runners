@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %}Directions result{% endblock %}
+{% block body %}
+    <p>Distance - {{ directions.distance }}</p>
+    <ol>
+        {% for step in directions.steps %}
+        <li>{{ step.html_instructions|raw }}</li>
+        {% endfor %}
+    </ol>
+{% endblock %}

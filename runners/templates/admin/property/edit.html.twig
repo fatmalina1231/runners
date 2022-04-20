@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition{% endblock %}
+
+{% block body %}
+
+  {% form_theme form 'bootstrap_4_layout.html.twig' %}
+  <div class="container mt-4">
+    <h1>Editer le bien</h1>
+    {{ include('admin/property/_form.html.twig', {button: 'Editer'}) }}
+  </div>
+
+{% endblock %}

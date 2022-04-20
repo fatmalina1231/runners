@@ -1,0 +1,22 @@
+{% extends 'user/wish/base.html.twig' %}
+{% block title %}{% endblock %}
+{% block body %}
+
+{% for message in app.flashes('no-code') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+{% endfor %}
+{% for message in app.flashes('no-code') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+{% endfor %}
+{% for message in app.flashes('success') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

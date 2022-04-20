@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Place Marker{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/place_marker_form.js') }}"></script>
+{% endblock %}
+{% block body %}
+    <form method="get">
+        <select name="type">
+            <option value="address">Address</option>
+            <option value="geocode">Latitude and longitude</option>
+        </select>
+        <br><br>
+        <div id="input">
+            Address
+            <input type="text" name="address">
+        </div>
+        <br>
+        <input type="submit">
+    </form>
+{% endblock %}

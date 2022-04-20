@@ -1,0 +1,242 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+$green: #86BB71;
+$blue: #94C2ED;
+$orange: #E38968;
+$gray: #92959E;
+body {
+    background: #C5DDEB;
+    font: "Lato", Arial, sans-serif;
+    color: white;
+    // font-size: 62.5%;
+    overflow: hidden;
+}
+
+.container {
+    background: #444753;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    // padding: 4rem 0;
+}
+
+.sidenav {
+    top: 64px !important;
+}
+
+.people-list {
+    padding: 0 .5rem;
+    background: #444753;
+    .search {
+        padding: 2rem;
+    }
+    input {
+        // border-radius: .3rem;
+        // border: none;
+        // padding: 1.4rem;
+        // color: white;
+        // background: #6A6C75;
+        // width: 90%;
+        // font-size: 1rem;
+    }
+    .fa-search {
+        position: relative;
+        left: -2.5rem;
+    }
+    .collection-item {
+        display: flex !important;
+        align-items: center;
+    }
+    .collection-item img {
+        width: 3rem;
+        height: 3rem;
+        margin-right: .5rem;
+    }
+}
+
+.chat {
+    margin: 0 300px;
+    background: #F2F5F8;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    color: #434651;
+    .chat-header {
+        padding: 2rem;
+        border-bottom: 2px solid white;
+        img {
+            float: left;
+        }
+    }
+    .chat-history {
+        padding: 3rem 3rem 2rem;
+        border-bottom: 2px solid white;
+        overflow-y: scroll;
+        height: 62vh;
+        .message-data {
+            margin-bottom: 1.5rem;
+        }
+        .message-data-time {
+            color: lighten($gray, 8%);
+            padding-left: .6rem;
+        }
+        .message {
+            color: white;
+            padding: 1rem 1rem;
+            line-height: 2.6rem;
+            font-size: 1.1rem;
+            border-radius: .7rem;
+            margin-bottom: 3rem;
+            width: 90%;
+            position: relative;
+            &:after {
+                bottom: 100%;
+                left: 7%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-bottom-color: $green;
+                border-width: 1rem;
+                margin-left: -1rem;
+            }
+        }
+        .my-message {
+            background: $green;
+        }
+        .other-message {
+            background: $blue;
+            &:after {
+                border-bottom-color: $blue;
+                left: 93%;
+            }
+        }
+    }
+    .chat-message {
+        padding: 1rem;
+        .fa-file-o,
+        .fa-file-image-o {
+            font-size: 1.6rem;
+            color: gray;
+            cursor: pointer;
+        }
+    }
+    .collection-item {
+        display: flex !important;
+        align-items: center;
+    }
+    .collection-item img {
+        width: 3rem;
+        height: 3rem;
+        margin-right: .5rem;
+    }
+}
+
+.online,
+.offline,
+.me {
+    margin-right: 3px;
+    font-size: 1rem;
+}
+
+.online {
+    color: $green;
+}
+
+.offline {
+    color: $orange;
+}
+
+.me {
+    color: $blue;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.float-right {
+    float: right;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+// header,
+// main,
+// footer {
+//     padding-left: 300px;
+// }
+// @media only screen and (max-width: 992px) {
+//     header,
+//     main,
+//     footer {
+//         padding-left: 0;
+//     }
+// }
+.materialize-textarea {
+    overflow-y: scroll !important;
+    max-height: 6rem !important;
+}
+
+.modal {
+    background: #F2F5F8;
+    color: #434651;
+}
+
+.modal h4 {
+    color: #434651;
+}
+
+.chat-header .chat-with {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 2px solid white;
+    position: relative;
+}
+
+.icon_add_conv {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.person_add {
+    width: 100%;
+    text-align: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.toggelClass {
+    flex-basis: 100%;
+}
+
+.userCard {
+    display: flex;
+    align-items: center;
+}
+
+.userCard img {
+    margin-right: .5rem;
+}
+
+.sidenav-trigger {
+    top: 65px !important;
+    position: fixed;
+}
